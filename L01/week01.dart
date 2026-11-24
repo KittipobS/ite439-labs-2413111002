@@ -1,6 +1,6 @@
 // ============================================================
 // L01 — Dart พื้นฐาน (ITE-439 สัปดาห์ที่ 1)
-// ชื่อ-สกุล: ______________________  รหัสนักศึกษา: ____________
+// ชื่อ-สกุล: กิตติภพ ศิริธนาพิพัฒน์  รหัสนักศึกษา: 2413111002
 // ============================================================
 //
 // วิธีทำ
@@ -45,7 +45,8 @@ void main() {
 // ------------------------------------------------------------
 String bmi(double weight, double height) {
   // TODO: เขียนโค้ดตรงนี้
-  return '';
+  double BMI = weight / (height * height);
+  return BMI.toStringAsFixed(2);
 }
 
 // ------------------------------------------------------------
@@ -60,17 +61,21 @@ String bmi(double weight, double height) {
 // ------------------------------------------------------------
 String average(List<int> numbers) {
   // TODO
-  return '';
+  final total = numbers.reduce((a,b) => a + b);
+  double aver = total / numbers.length;
+  return aver.toStringAsFixed(2);
 }
 
 int highest(List<int> numbers) {
   // TODO
-  return 0;
+  final max = numbers.reduce((a,b) => a > b ? a:b);
+  return max;
 }
 
 int lowest(List<int> numbers) {
   // TODO
-  return 0;
+  final min = numbers.reduce((a,b) => a < b ? a:b);
+  return min;
 }
 
 // ------------------------------------------------------------
@@ -92,7 +97,10 @@ const List<Map<String, dynamic>> students = [
 
 List<String> topStudentNames(List<Map<String, dynamic>> list) {
   // TODO
-  return [];
+  final passed = list
+  .where((s) => (s['score'] as int) >= 80)
+  .map((n) => (n['name'] as String)).toList();
+  return passed;
 }
 
 // ------------------------------------------------------------
